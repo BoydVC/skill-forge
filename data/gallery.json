@@ -1,0 +1,171 @@
+[
+  {
+    "id": "morning-digest",
+    "name": "Morning Digest",
+    "emoji": "☀️",
+    "tag": "ops",
+    "description": "Compile overnight Slack heat, calendar blockers, and finance surprises into a 6-bullet morning brief for Boyd before 8 AM ET.",
+    "steps": [
+      "Scan Slack channels for unread heat since 8 PM ET prior day; rank by urgency.",
+      "Pull today's Outlook/calendar events; flag conflicts and travel buffers.",
+      "Check Finance for surprise charges over $250 or unusual merchants.",
+      "Summarize kids sports/school coverage gaps for the day.",
+      "Draft a 6-bullet digest; escalate only decisions and people waiting.",
+      "Store draft locally; do not auto-send unless Boyd approved the channel."
+    ]
+  },
+  {
+    "id": "sports-desk",
+    "name": "Sports Desk Check",
+    "emoji": "🏟️",
+    "tag": "sports",
+    "description": "Quick sports desk for Ravens, Orioles, Chelsea, Terps, plus Vic/Char team logistics for the next 72 hours.",
+    "steps": [
+      "Fetch latest scores/news for Ravens, Orioles, Chelsea FC, Terps basketball.",
+      "List Vic API baseball / Green Hornets and Char Aspire practices & games in next 72h.",
+      "Note carpool rules: Vic drop API/Hornets daily; Boyds pick up; Char Aspire Tue/Thu.",
+      "Flag weather or field-status risks if available from public sources.",
+      "Produce a one-screen desk card Boyd can skim between meetings."
+    ]
+  },
+  {
+    "id": "fleet-health",
+    "name": "Fleet Health",
+    "emoji": "🩺",
+    "tag": "agents",
+    "description": "Read-only health sweep of Boyd's Grok Bot fleet: routines, stuck jobs, and usage pacing vs TokenMax target.",
+    "steps": [
+      "List registered bots and last-run timestamps from local metadata only.",
+      "Flag routines overdue or failed in the last 24h.",
+      "Compare Grok Bot weekly usage vs straight-line target to reset.",
+      "Suggest burn candidates from SHORTLIST.md without launching agents.",
+      "Report pass/warn/fail strip; never mutate workflows or other bots."
+    ]
+  },
+  {
+    "id": "bookmark-radar",
+    "name": "Bookmark Radar",
+    "emoji": "📡",
+    "tag": "agents",
+    "description": "Cluster recent X bookmarks from @xristafer into themes — personal AI-agent systems first — and surface 3 build ideas.",
+    "steps": [
+      "Pull recent bookmarks (read-only) and group by theme.",
+      "Weight personal AI-agent / tooling clusters highest.",
+      "Cross-check against TokenMax SHORTLIST to avoid dupes.",
+      "Propose 3 concrete offline HTML or agent-skill ideas.",
+      "Save a radar card to localStorage for the forge gallery."
+    ]
+  },
+  {
+    "id": "token-burn-watch",
+    "name": "Token Burn Watch",
+    "emoji": "🔥",
+    "tag": "ops",
+    "description": "Keep Grok Bot weekly pool on pace (95% by reset ~7:42 PM ET Thursdays). Trigger daily-usage-check burns when behind.",
+    "steps": [
+      "Reload Cursor dashboard; read Grok Bot weekly %, Cursor Models %, reset time.",
+      "Compute straight-line target from week start to reset.",
+      "If behind by >5 pts, pick 4 SHORTLIST builds and queue burn notes.",
+      "Never burn Cursor Models pool before Oct 20 unless Boyd says so.",
+      "Post status only when thursday-reset-safety-net or user-approved send."
+    ]
+  },
+  {
+    "id": "calendar-sweep",
+    "name": "Calendar Sweep",
+    "emoji": "📅",
+    "tag": "ops",
+    "description": "Sweep Boyd's Outlook week for NCBA, sports, school, and work AI-ops blocks; propose free slots for deep work.",
+    "steps": [
+      "List next 7 days of calendar events (Outlook web if connector pending).",
+      "Tag NCBA conference, kids sports, school, KPD meetings.",
+      "Find 2+ hour free blocks suitable for agent builds or deep work.",
+      "Loop Miranda only on school/money/calendar conflicts.",
+      "Output a week strip Boyd can screenshot."
+    ]
+  },
+  {
+    "id": "slack-heat",
+    "name": "Slack Heat Map",
+    "emoji": "💬",
+    "tag": "work",
+    "description": "Map kpdlawgroup Slack heat for firm AI/ops priority when things are on fire — Lucas, Stefan/Nate, Kent, Ruck, Shawn.",
+    "steps": [
+      "Search recent public+private mentions involving AI/ops projects.",
+      "Rank threads by recency and unanswered @cboyd.",
+      "Group by counterpart: Lucas, Stefan/Nate, Kent, Ruck, Shawn, Tony, Amanda, Steve.",
+      "Escalate only decisions and people waiting; lunchtime interrupts OK.",
+      "Draft triage list; do not reply unless Boyd asked."
+    ]
+  },
+  {
+    "id": "kids-coverage",
+    "name": "Kids Coverage Board",
+    "emoji": "👨‍👧‍👦",
+    "tag": "family",
+    "description": "Board for Char/Vic coverage — always ask Boyd/Miranda before assuming Chris/Beth, Melody, or team-parent coverage.",
+    "steps": [
+      "List practices/games for Char Aspire and Vic API/Hornets this week.",
+      "Apply standing rules: Vic drop daily by Vic's carpool; Boyds pick up; Char Aspire Tue carpool / Thu Boyds to St Mary's.",
+      "Never auto-assign Chris/Beth/Melody/team parents — ask first.",
+      "Homework before sports; note who is coaching.",
+      "Produce a coverage board draft for Miranda + Boyd review."
+    ]
+  },
+  {
+    "id": "ravens-gameday",
+    "name": "Ravens Gameday Prep",
+    "emoji": "💜",
+    "tag": "sports",
+    "description": "Pre-game card: opponent, kickoff ET, broadcast, injury notes, and a 5-play fantasy/watchlist cheat sheet.",
+    "steps": [
+      "Confirm next Ravens kickoff time in ET and TV/stream.",
+      "Summarize opponent form and key matchups in 4 bullets.",
+      "Note injury/inactives from public sources.",
+      "Build a 5-item watchlist (players/moments).",
+      "Save card for Fridge Board / family TV night."
+    ]
+  },
+  {
+    "id": "orioles-hot-stove",
+    "name": "Orioles Hot Stove Brief",
+    "emoji": "🧡",
+    "tag": "sports",
+    "description": "Offseason / Hot Stove brief for the Orioles — roster moves, prospect buzz, and schedule milestones.",
+    "steps": [
+      "Scan recent Orioles roster and Hot Stove headlines.",
+      "Highlight prospects and arbitration/free-agent notes.",
+      "List next meaningful calendar milestones (ST, Opening Day).",
+      "Keep tone fan-first, rumor-skeptical.",
+      "One-page brief suitable for Camden Nights companion."
+    ]
+  },
+  {
+    "id": "ncba-pack",
+    "name": "NCBA Conference Pack",
+    "emoji": "🧳",
+    "tag": "work",
+    "description": "Travel/session pack for NCBA Oct 2026 — sessions Boyd chose, Shawn & Michael Lagana overlap, logistics checklist.",
+    "steps": [
+      "Load Boyd's chosen sessions (1, 2, 7, 8) and calendar blocks.",
+      "Note colleagues also attending: Shawn, Michael Lagana.",
+      "Checklist: travel, badge, hotel, laptop/chargers, AI demo notes.",
+      "Prep 3 talking points on KPD AI/ops autonomy work.",
+      "Do not invent session times — pull from calendar/Outlook."
+    ]
+  },
+  {
+    "id": "wire-check-lite",
+    "name": "Skill Wire Check Lite",
+    "emoji": "✅",
+    "tag": "agents",
+    "description": "Validate a drafted SKILL.md: frontmatter, description length, step count, and playground-safe boundaries (no real FS writes).",
+    "steps": [
+      "Parse draft for name, description, and ordered steps.",
+      "Fail if description < 40 or > 400 chars; warn if steps < 3 or > 12.",
+      "Flag verbs that imply mutating other bots or workflows.",
+      "Confirm playground-only: localStorage allowed, agent-data paths forbidden.",
+      "Emit pass/fail checklist with animated strip for the Forge UI."
+    ]
+  }
+]

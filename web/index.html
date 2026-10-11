@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agent Skill Forge · Grok Bot skill designer</title>
+<meta name="theme-color" content="#070812">
+<meta name="description" content="Playground for drafting SKILL.md-style Grok Bot recipes — editor, preview cards, EXAMPLE gallery, wire check. Offline-safe. Never touches real skills.">
+<style>/*__CSS__*/</style>
+</head>
+<body>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-orb orb-a" aria-hidden="true"></div>
+<div class="bg-orb orb-b" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="brand">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 48 48" width="42" height="42">
+        <defs>
+          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/>
+          </linearGradient>
+        </defs>
+        <rect x="2" y="2" width="44" height="44" rx="12" fill="#0c1020" stroke="url(#lg)" stroke-width="2"/>
+        <path d="M14 32 V16 h6 c6 0 10 3 10 8s-4 8-10 8H14z" fill="none" stroke="url(#lg)" stroke-width="2.2" stroke-linejoin="round"/>
+        <path d="M28 16h6v16M28 24h5" fill="none" stroke="#a78bfa" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="36" cy="14" r="2.2" fill="#22d3ee"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Agent Skill Forge</h1>
+      <p class="tag">SKILL.md playground · drafts stay in localStorage · EXAMPLE gallery only</p>
+    </div>
+  </div>
+  <div class="top-actions">
+    <span class="pill safe" title="Playground only — no writes to agent-data or workflows">playground</span>
+    <span class="pill" id="draftCountPill">0 drafts</span>
+    <button type="button" class="btn ghost" id="btnExportAll" title="Export all drafts as JSON">Export</button>
+    <button type="button" class="btn primary" id="btnNewSkill">+ New skill</button>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Forge screens">
+  <button class="tab active" data-view="home" role="tab" aria-selected="true">Forge Home</button>
+  <button class="tab" data-view="editor" role="tab" aria-selected="false">Editor</button>
+  <button class="tab" data-view="preview" role="tab" aria-selected="false">Preview</button>
+  <button class="tab" data-view="gallery" role="tab" aria-selected="false">Gallery</button>
+  <button class="tab" data-view="wire" role="tab" aria-selected="false">Wire Check</button>
+</nav>
+
+<main>
+  <!-- HOME -->
+  <section id="view-home" class="view active" role="tabpanel">
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">TokenMax · agent tooling</p>
+        <h2>Design Grok Bot skills without touching the fleet</h2>
+        <p class="lede">Draft SKILL.md-style recipes, preview settings cards, browse EXAMPLE templates, and run a simulated wire check. Everything stays on this machine — localStorage only.</p>
+        <div class="hero-cta">
+          <button type="button" class="btn primary lg" data-goto="editor" data-action="blank">Open editor</button>
+          <button type="button" class="btn ghost lg" data-goto="gallery">Browse EXAMPLES</button>
+        </div>
+      </div>
+      <div class="hero-card" id="heroPreviewCard" aria-hidden="true"></div>
+    </div>
+
+    <div class="home-grid">
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Quick-start templates</h3>
+          <p class="hint">One-click loads into the editor · all marked EXAMPLE</p>
+        </div>
+        <div class="template-row" id="quickTemplates"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Recent drafts</h3>
+          <p class="hint">Saved in <code>localStorage</code> · skill-forge.drafts</p>
+        </div>
+        <div id="recentDrafts" class="draft-list"></div>
+      </div>
+    </div>
+
+    <div class="stat-strip" id="statStrip">
+      <div class="stat"><span class="n" id="statGallery">0</span><span class="l">EXAMPLE skills</span></div>
+      <div class="stat"><span class="n" id="statDrafts">0</span><span class="l">local drafts</span></div>
+      <div class="stat"><span class="n" id="statPass">—</span><span class="l">last wire check</span></div>
+      <div class="stat"><span class="n" id="statChars">0</span><span class="l">markdown chars</span></div>
+    </div>
+  </section>
+
+  <!-- EDITOR -->
+  <section id="view-editor" class="view" role="tabpanel" hidden>
+    <div class="panel-head row">
+      <div>
+        <h2>Skill editor</h2>
+        <p class="hint">Edit fields or raw markdown · live preview updates on the right</p>
+      </div>
+      <div class="controls">
+        <button type="button" class="btn ghost" id="btnLoadExample">Load EXAMPLE…</button>
+        <button type="button" class="btn ghost" id="btnFormatMd">Format MD</button>
+        <button type="button" class="btn" id="btnSaveDraft">Save draft</button>
+        <button type="button" class="btn primary" id="btnToPreview">Preview →</button>
+      </div>
+    </div>
+    <div class="editor-split">
+      <div class="editor-pane">
+        <div class="field-grid">
+          <label class="field">
+            <span>Name</span>
+            <input type="text" id="fieldName" placeholder="e.g. Morning Digest" maxlength="80" autocomplete="off">
+          </label>
+          <label class="field">
+            <span>Emoji</span>
+            <input type="text" id="fieldEmoji" placeholder="⚙️" maxlength="4" class="emoji-in">
+          </label>
+          <label class="field">
+            <span>Tag</span>
+            <select id="fieldTag">
+              <option value="ops">ops</option>
+              <option value="agents">agents</option>
+              <option value="sports">sports</option>
+              <option value="work">work</option>
+              <option value="family">family</option>
+              <option value="custom">custom</option>
+            </select>
+          </label>
+          <label class="field span2">
+            <span>Description</span>
+            <textarea id="fieldDesc" rows="3" placeholder="One-line purpose the bot can skim…" maxlength="500"></textarea>
+          </label>
+        </div>
+        <div class="steps-block">
+          <div class="steps-head">
+            <h3>Steps</h3>
+            <button type="button" class="btn sm" id="btnAddStep">+ Step</button>
+          </div>
+          <ol class="step-list" id="stepList"></ol>
+        </div>
+        <details class="raw-md" open>
+          <summary>Raw SKILL.md</summary>
+          <textarea id="rawMd" spellcheck="false" aria-label="Raw markdown"></textarea>
+        </details>
+        <p class="sync-note" id="syncNote">Fields ↔ markdown stay in sync</p>
+      </div>
+      <div class="preview-pane">
+        <div class="preview-label">Live card</div>
+        <div id="liveCard" class="skill-card live"></div>
+        <div class="md-preview" id="mdPreview"></div>
+      </div>
+    </div>
+    <div class="toast" id="toast" hidden role="status"></div>
+  </section>
+
+  <!-- PREVIEW -->
+  <section id="view-preview" class="view" role="tabpanel" hidden>
+    <div class="panel-head row">
+      <div>
+        <h2>Bot settings preview</h2>
+        <p class="hint">How the skill might look in a bot settings list · copy markdown for paste elsewhere</p>
+      </div>
+      <div class="controls">
+        <button type="button" class="btn ghost" id="btnCopyMd">Copy as markdown</button>
+        <button type="button" class="btn" data-goto="editor">← Edit</button>
+        <button type="button" class="btn primary" data-goto="wire">Run Wire Check</button>
+      </div>
+    </div>
+    <div class="preview-stage">
+      <div class="fake-settings">
+        <div class="fake-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="fake-title">Grok Bot · Skills</span>
+        </div>
+        <div class="fake-sidebar">
+          <div class="nav-item">Overview</div>
+          <div class="nav-item active">Skills</div>
+          <div class="nav-item">Routines</div>
+          <div class="nav-item">Memory</div>
+          <div class="nav-item muted">Workflows (locked)</div>
+        </div>
+        <div class="fake-main">
+          <h3 class="fake-h">Installed skills</h3>
+          <p class="fake-sub">Playground preview — not installed on any bot</p>
+          <div id="settingsCard" class="skill-card settings-lg"></div>
+          <div class="fake-actions">
+            <button type="button" class="btn sm primary" disabled>Enable (demo)</button>
+            <button type="button" class="btn sm ghost" disabled>Schedule (demo)</button>
+          </div>
+        </div>
+      </div>
+      <aside class="preview-side">
+        <h3>Markdown export</h3>
+        <pre id="exportPre" class="code-block"></pre>
+        <p class="muted sm">Copied text is the full SKILL.md body. Paste into your own notes — Forge never writes under <code>agent-data/workflows</code>.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="view-gallery" class="view" role="tabpanel" hidden>
+    <div class="panel-head row">
+      <div>
+        <h2>EXAMPLE gallery</h2>
+        <p class="hint">Click a card to load into the editor · clearly EXAMPLE · not live skills</p>
+      </div>
+      <div class="controls">
+        <input type="search" id="galleryFilter" placeholder="Filter EXAMPLES…" aria-label="Filter gallery">
+        <select id="galleryTag" aria-label="Filter by tag">
+          <option value="">All tags</option>
+          <option value="ops">ops</option>
+          <option value="agents">agents</option>
+          <option value="sports">sports</option>
+          <option value="work">work</option>
+          <option value="family">family</option>
+        </select>
+      </div>
+    </div>
+    <div class="gallery-banner">
+      <strong>EXAMPLE only.</strong> These templates illustrate skill shape for agent-tooling experiments. Loading one overwrites the editor draft fields (you can still Save a new local draft).
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </section>
+
+  <!-- WIRE CHECK -->
+  <section id="view-wire" class="view" role="tabpanel" hidden>
+    <div class="panel-head row">
+      <div>
+        <h2>Wire Check</h2>
+        <p class="hint">Simulated validation checklist · animations only · no filesystem writes outside localStorage</p>
+      </div>
+      <div class="controls">
+        <button type="button" class="btn primary" id="btnRunWire">Run check</button>
+        <button type="button" class="btn ghost" data-goto="editor">← Editor</button>
+      </div>
+    </div>
+    <div class="wire-layout">
+      <div class="wire-subject" id="wireSubject"></div>
+      <ul class="wire-list" id="wireList" aria-live="polite"></ul>
+      <div class="wire-score" id="wireScore">
+        <div class="score-ring" id="scoreRing"><span id="scorePct">—</span></div>
+        <div class="score-meta">
+          <div id="scoreLabel">Not run yet</div>
+          <div class="muted" id="scoreDetail">Hit Run check to validate the current draft.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- EXAMPLE picker modal -->
+<div class="modal" id="exampleModal" hidden>
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3>Load EXAMPLE</h3>
+      <button type="button" class="btn ghost sm" id="modalClose" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+<div class="backdrop" id="backdrop" hidden></div>
+
+<footer class="foot">
+  <span>Agent Skill Forge</span>
+  <span class="sep">·</span>
+  <span>playground · localStorage only · never mutates bots or workflows</span>
+  <span class="sep">·</span>
+  <span id="footMeta">offline</span>
+</footer>
+
+<script>
+window.__GALLERY__ = /*__GALLERY__*/ null /*__/GALLERY__*/;
+</script>
+<script>/*__APP__*/</script>
+</body>
+</html>
