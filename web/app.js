@@ -29,11 +29,11 @@
       emoji: "🏟️",
       tag: "sports",
       description:
-        "Quick sports desk for Ravens, Orioles, Chelsea, Terps, plus Vic/Char team logistics for the next 72 hours.",
+        "Quick sports desk for Ravens, Orioles, Chelsea, Terps, plus Sam/Char team logistics for the next 72 hours.",
       steps: [
         "Fetch latest scores/news for Ravens, Orioles, Chelsea FC, Terps basketball.",
-        "List Vic API baseball / Green Hornets and Char Aspire practices & games in next 72h.",
-        "Note carpool rules: Vic drop API/Hornets daily; Boyds pick up; Char Aspire Tue/Thu.",
+        "List Sam API baseball / Blue Comets and Alex Aspire practices & games in next 72h.",
+        "Note carpool rules: Sam drop API/Hornets daily; Boyds pick up; Alex Aspire Tue/Thu.",
         "Flag weather or field-status risks if available from public sources.",
         "Produce a one-screen desk card Boyd can skim between meetings.",
       ],
@@ -94,7 +94,7 @@
         "List next 7 days of calendar events (Outlook web if connector pending).",
         "Tag NCBA conference, kids sports, school, KPD meetings.",
         "Find 2+ hour free blocks suitable for agent builds or deep work.",
-        "Loop Miranda only on school/money/calendar conflicts.",
+        "Loop Jordan only on school/money/calendar conflicts.",
         "Output a week strip Boyd can screenshot.",
       ],
     },
@@ -119,13 +119,13 @@
       emoji: "👨‍👧‍👦",
       tag: "family",
       description:
-        "Board for Char/Vic coverage — always ask Boyd/Miranda before assuming Chris/Beth, Melody, or team-parent coverage.",
+        "Board for Alex/Vic coverage — always ask Boyd/Miranda before assuming Chris/Beth, Melody, or team-parent coverage.",
       steps: [
-        "List practices/games for Char Aspire and Vic API/Hornets this week.",
-        "Apply standing rules: Vic drop daily by Vic's carpool; Boyds pick up; Char Aspire Tue carpool / Thu Boyds to St Mary's.",
+        "List practices/games for Alex Aspire and Sam API/Hornets this week.",
+        "Apply standing rules: Sam drop daily by Sam's carpool; Boyds pick up; Alex Aspire Tue carpool / Thu Boyds to Northside Academy.",
         "Never auto-assign Chris/Beth/Melody/team parents — ask first.",
         "Homework before sports; note who is coaching.",
-        "Produce a coverage board draft for Miranda + Boyd review.",
+        "Produce a coverage board draft for Jordan + Boyd review.",
       ],
     },
     {
