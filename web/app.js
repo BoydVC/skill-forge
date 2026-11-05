@@ -29,7 +29,7 @@
       emoji: "🏟️",
       tag: "sports",
       description:
-        "Quick sports desk for Ravens, Orioles, Chelsea, Terps, plus Sam/Char team logistics for the next 72 hours.",
+        "Quick sports desk for Ravens, Orioles, Chelsea, Terps, plus Sam/Alex team logistics for the next 72 hours.",
       steps: [
         "Fetch latest scores/news for Ravens, Orioles, Chelsea FC, Terps basketball.",
         "List Sam API baseball / Blue Comets and Alex Aspire practices & games in next 72h.",
@@ -119,7 +119,7 @@
       emoji: "👨‍👧‍👦",
       tag: "family",
       description:
-        "Board for Alex/Vic coverage — always ask Boyd/Miranda before assuming Chris/Beth, Melody, or team-parent coverage.",
+        "Board for Alex/Sam coverage — always ask Boyd/Jordan before assuming Chris/Beth, Melody, or team-parent coverage.",
       steps: [
         "List practices/games for Alex Aspire and Sam API/Hornets this week.",
         "Apply standing rules: Sam drop daily by Sam's carpool; Boyds pick up; Alex Aspire Tue carpool / Thu Boyds to Northside Academy.",
