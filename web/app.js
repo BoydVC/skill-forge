@@ -13,14 +13,14 @@
       emoji: "☀️",
       tag: "ops",
       description:
-        "Compile overnight Slack heat, calendar blockers, and finance surprises into a 6-bullet morning brief for Boyd before 8 AM ET.",
+        "Compile overnight Slack heat, calendar blockers, and finance surprises into a 6-bullet morning brief for Alex before 8 AM ET.",
       steps: [
         "Scan Slack channels for unread heat since 8 PM ET prior day; rank by urgency.",
         "Pull today's Outlook/calendar events; flag conflicts and travel buffers.",
         "Check Finance for surprise charges over $250 or unusual merchants.",
         "Summarize kids sports/school coverage gaps for the day.",
         "Draft a 6-bullet digest; escalate only decisions and people waiting.",
-        "Store draft locally; do not auto-send unless Boyd approved the channel.",
+        "Store draft locally; do not auto-send unless Alex approved the channel.",
       ],
     },
     {
@@ -33,9 +33,9 @@
       steps: [
         "Fetch latest scores/news for Ravens, Orioles, Chelsea FC, Terps basketball.",
         "List Sam API baseball / Blue Comets and Alex Aspire practices & games in next 72h.",
-        "Note carpool rules: Sam drop API/Hornets daily; Boyds pick up; Alex Aspire Tue/Thu.",
+        "Note carpool rules: Sam drop API/Hornets daily; Riveras pick up; Alex Aspire Tue/Thu.",
         "Flag weather or field-status risks if available from public sources.",
-        "Produce a one-screen desk card Boyd can skim between meetings.",
+        "Produce a one-screen desk card Alex can skim between meetings.",
       ],
     },
     {
@@ -44,7 +44,7 @@
       emoji: "🩺",
       tag: "agents",
       description:
-        "Read-only health sweep of Boyd's Grok Bot fleet: routines, stuck jobs, and usage pacing vs TokenMax target.",
+        "Read-only health sweep of Alex's Grok Bot fleet: routines, stuck jobs, and usage pacing vs TokenMax target.",
       steps: [
         "List registered bots and last-run timestamps from local metadata only.",
         "Flag routines overdue or failed in the last 24h.",
@@ -79,7 +79,7 @@
         "Reload Cursor dashboard; read Grok Bot weekly %, Cursor Models %, reset time.",
         "Compute straight-line target from week start to reset.",
         "If behind by >5 pts, pick 4 SHORTLIST builds and queue burn notes.",
-        "Never burn Cursor Models pool before Oct 20 unless Boyd says so.",
+        "Never burn Cursor Models pool before Oct 20 unless Alex says so.",
         "Post status only when thursday-reset-safety-net or user-approved send.",
       ],
     },
@@ -89,13 +89,13 @@
       emoji: "📅",
       tag: "ops",
       description:
-        "Sweep Boyd's Outlook week for NCBA, sports, school, and work AI-ops blocks; propose free slots for deep work.",
+        "Sweep Alex's Outlook week for NCBA, sports, school, and work AI-ops blocks; propose free slots for deep work.",
       steps: [
         "List next 7 days of calendar events (Outlook web if connector pending).",
         "Tag NCBA conference, kids sports, school, KPD meetings.",
         "Find 2+ hour free blocks suitable for agent builds or deep work.",
         "Loop Jordan only on school/money/calendar conflicts.",
-        "Output a week strip Boyd can screenshot.",
+        "Output a week strip Alex can screenshot.",
       ],
     },
     {
@@ -110,7 +110,7 @@
         "Rank threads by recency and unanswered @cboyd.",
         "Group by counterpart: Lucas, Stefan/Nate, Kent, Ruck, Shawn, Tony, Amanda, Steve.",
         "Escalate only decisions and people waiting; lunchtime interrupts OK.",
-        "Draft triage list; do not reply unless Boyd asked.",
+        "Draft triage list; do not reply unless Alex asked.",
       ],
     },
     {
@@ -119,13 +119,13 @@
       emoji: "👨‍👧‍👦",
       tag: "family",
       description:
-        "Board for Alex/Sam coverage — always ask Boyd/Jordan before assuming Chris/Beth, Melody, or team-parent coverage.",
+        "Board for Alex/Sam coverage — always ask Alex/Jordan before assuming Pat/Morgan, Casey, or team-parent coverage.",
       steps: [
         "List practices/games for Alex Aspire and Sam API/Hornets this week.",
-        "Apply standing rules: Sam drop daily by Sam's carpool; Boyds pick up; Alex Aspire Tue carpool / Thu Boyds to Northside Academy.",
-        "Never auto-assign Chris/Beth/Melody/team parents — ask first.",
+        "Apply standing rules: Sam drop daily by Sam's carpool; Riveras pick up; Alex Aspire Tue carpool / Thu Riveras to Northside Academy.",
+        "Never auto-assign Pat/Morgan/Casey/team parents — ask first.",
         "Homework before sports; note who is coaching.",
-        "Produce a coverage board draft for Jordan + Boyd review.",
+        "Produce a coverage board draft for Jordan + Alex review.",
       ],
     },
     {
@@ -164,9 +164,9 @@
       emoji: "🧳",
       tag: "work",
       description:
-        "Travel/session pack for NCBA Oct 2026 — sessions Boyd chose, Shawn & Michael Lagana overlap, logistics checklist.",
+        "Travel/session pack for NCBA Oct 2026 — sessions Alex chose, Shawn & Michael Lagana overlap, logistics checklist.",
       steps: [
-        "Load Boyd's chosen sessions (1, 2, 7, 8) and calendar blocks.",
+        "Load Alex's chosen sessions (1, 2, 7, 8) and calendar blocks.",
         "Note colleagues also attending: Shawn, Michael Lagana.",
         "Checklist: travel, badge, hotel, laptop/chargers, AI demo notes.",
         "Prep 3 talking points on KPD AI/ops autonomy work.",
