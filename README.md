@@ -1,6 +1,6 @@
 # Agent Skill Forge
 
-Grok Bot skill designer playground for Boyd (TokenMax burn). Draft SKILL.md-style recipes, preview settings cards, browse an EXAMPLE gallery, and run a simulated Wire Check.
+Grok Bot skill designer playground for Alex (TokenMax burn). Draft SKILL.md-style recipes, preview settings cards, browse an EXAMPLE gallery, and run a simulated Wire Check.
 
 **Hard rule:** playground only. Drafts live in `localStorage`. Never writes under `/home/box/agent-data` or real workflows. No cloud agents. No mutating other bots.
 
@@ -30,6 +30,6 @@ Offline single file: `dist/skill-forge.html`
 
 ---
 ## Repo notes
-- **Built:** Oct 2026 (TokenMax build week; see SHORTLIST/ledger), by TokenMax (Boyd's Grok Bot) on the Grok Bot box.
+- **Built:** Oct 2026 (TokenMax build week; see SHORTLIST/ledger), by TokenMax (Alex's Grok Bot) on the Grok Bot box.
 - **Run:** `./run.sh` (then open the localhost URL it prints).
 - Imported from `/workspace/tokenmax/skill-forge` on Oct 23, 2026. node_modules, virtualenvs, logs and files over 20 MB were left out.
